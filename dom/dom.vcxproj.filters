@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts</Extensions>
+    </Filter>
+    <Filter Include="Header Files\code">
+      <UniqueIdentifier>{262b89a8-7e3b-4a85-924d-3accfb999884}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\code">
+      <UniqueIdentifier>{6ba9302e-241f-4006-9a08-f3ffb4b7b32c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\windows">
+      <UniqueIdentifier>{6a959993-c9c3-42bd-9565-13c119106c55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\windows">
+      <UniqueIdentifier>{2fa66e08-e2bf-48cb-b7f0-8edd52a51ea1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\code\pre_processing">
+      <UniqueIdentifier>{b2063f5d-5cad-45f4-8b60-3467cce1a569}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\code\pre_processing">
+      <UniqueIdentifier>{b27c8ab5-032e-44b1-805b-011ee050292a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\util">
+      <UniqueIdentifier>{af87684c-8828-4e94-b069-5d65cf72ce85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\util">
+      <UniqueIdentifier>{ce2f4df2-f0f5-4e03-9ff5-5882f5d9c6e6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="dom.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <QtUic Include="dom.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code.cpp">
+      <Filter>Source Files\code</Filter>
+    </ClCompile>
+    <ClCompile Include="operator_window.cpp">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="dom.cpp">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="pre_processing.cpp">
+      <Filter>Source Files\code\pre_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="image_stitch.cpp">
+      <Filter>Source Files\code\pre_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="image_segmentation.cpp">
+      <Filter>Source Files\code\pre_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="input_window.cpp">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="output_window.cpp">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="variate_window.cpp">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="QFlowLayout.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalParam.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="VariateLabel.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="code.h">
+      <Filter>Header Files\code</Filter>
+    </QtMoc>
+    <QtMoc Include="operator_window.h">
+      <Filter>Header Files\windows</Filter>
+    </QtMoc>
+    <QtMoc Include="dom.h">
+      <Filter>Header Files\windows</Filter>
+    </QtMoc>
+    <QtMoc Include="pre_processing.h">
+      <Filter>Header Files\code\pre_processing</Filter>
+    </QtMoc>
+    <QtMoc Include="image_stitch.h">
+      <Filter>Header Files\code\pre_processing</Filter>
+    </QtMoc>
+    <QtMoc Include="input_window.h">
+      <Filter>Header Files\windows</Filter>
+    </QtMoc>
+    <QtMoc Include="output_window.h">
+      <Filter>Header Files\windows</Filter>
+    </QtMoc>
+    <QtMoc Include="variate_window.h">
+      <Filter>Header Files\windows</Filter>
+    </QtMoc>
+    <QtMoc Include="VariateLabel.h">
+      <Filter>Header Files\util</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="operator_window.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="input_window.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="output_window.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="variate_window.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="QFlowLayout.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="image_segmentation.h">
+      <Filter>Header Files\code\pre_processing</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalParam.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
