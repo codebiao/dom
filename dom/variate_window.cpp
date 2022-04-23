@@ -9,6 +9,7 @@ variate_window::variate_window(QWidget *parent)
 	//创建布局
 	QScrollArea *scrollArea = ui.scrollArea;
 	flowLayout = new QFlowLayout(scrollArea);
+
 }
 
 variate_window::~variate_window(){}
@@ -32,11 +33,22 @@ void variate_window::update() {
 		Mat mat = iterator.value();
 		//创建QLabel
 		VariateLabel *label = new VariateLabel(mat);	//通过构造函数传入Mat值，在VariateLabel类中定义signal
-		label->setMinimumSize(100, 100);
-		label->setMaximumSize(100, 100);
+		label->resize(80, 80);
 		//调用全局函数，将Mat显示在Label中
 		global_matToQimageLabelShow(label, mat);
-		flowLayout->addWidget(label);
+		//创建下标label
+		QLabel *nameLabel = new QLabel(this);
+		nameLabel->setAlignment(Qt::AlignCenter);	//设置文字居中显示
+		nameLabel->setText(iterator.key());
+		//创建垂直布局依附于frame，将图片label和下标nameLabel添加到布局中
+		QFrame * frame = new QFrame(this);
+		QVBoxLayout *vy = new QVBoxLayout(frame);
+		vy->addWidget(label);
+		vy->addWidget(nameLabel);
+		vy->setMargin(0);	//设置外边距	//vy->setSpacing(0);//设置内边距;
+		//将fram添加到flowLayout布局中
+		flowLayout->addWidget(frame);
+
 		//将该label与本窗口中的槽函数进行链接//通过窗口利用【多重信号】进行中转
 		connect(label, SIGNAL(clicked(Mat)), this, SLOT(LabelTrans2Window(Mat)));
 	}

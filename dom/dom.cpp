@@ -8,9 +8,6 @@ dom::dom(QWidget *parent)
     ui.setupUi(this);
 	this->move(250,70);
 
-	inputWindow = new input_window(this);
-	//ui.mdiArea->addSubWindow(inputWindow);
-	//ui.mdiArea->addSubWindow(inputWindow);
 	// 启动默认打开窗口
 	open_output_window();
 	open_input_window();
@@ -64,13 +61,12 @@ void dom::test()
 
 
 //打开 输入窗口
-void dom::open_input_window()
+void dom::open_input_window() 
 {
-	//if (!isOpen("输入窗口")) {
-	//	inputWindow = new input_window(this);		//实例化输入窗口
-	//	ui.mdiArea->addSubWindow(inputWindow);		//将输入窗口添加进mdiArea
-	//}
-	
+	if (!isOpen("输入窗口")) {
+		inputWindow = new input_window(this);		//实例化输入窗口
+		ui.mdiArea->addSubWindow(inputWindow);		//将输入窗口添加进mdiArea
+	}
 	inputWindow->show();
 }
 //打开 算子窗口
