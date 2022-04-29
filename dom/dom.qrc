@@ -1,5 +1,8 @@
 <RCC>
-    <qresource prefix="/dom">
-        <file>resource/operatorInfo.txt</file>
-    </qresource>
+  <qresource prefix="/dom">
+    <file>resource/operatorInfo.txt</file>
+  </qresource>
+  <qresource prefix="/images">
+    <file>resource/images/newFile.png</file>
+  </qresource>
 </RCC>

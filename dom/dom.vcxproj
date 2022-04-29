@@ -85,7 +85,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="code.cpp" />
+    <ClCompile Include="CodeFactory.cpp" />
     <ClCompile Include="GlobalParam.cpp" />
     <ClCompile Include="image_segmentation.cpp" />
     <ClCompile Include="image_stitch.cpp" />
@@ -94,6 +94,7 @@
     <ClCompile Include="output_window.cpp" />
     <ClCompile Include="pre_processing.cpp" />
     <ClCompile Include="QFlowLayout.cpp" />
+    <ClCompile Include="SourceCode.cpp" />
     <ClCompile Include="VariateLabel.cpp" />
     <ClCompile Include="variate_window.cpp" />
     <QtRcc Include="dom.qrc" />
@@ -110,15 +111,14 @@
     <QtMoc Include="operator_window.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="code.h" />
-  </ItemGroup>
-  <ItemGroup>
     <QtMoc Include="pre_processing.h" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="image_stitch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SourceCode.h" />
+    <QtMoc Include="CodeFactory.h" />
     <ClInclude Include="GlobalParam.h" />
     <ClInclude Include="image_segmentation.h" />
     <QtMoc Include="VariateLabel.h" />

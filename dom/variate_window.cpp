@@ -7,9 +7,26 @@ variate_window::variate_window(QWidget *parent)
 {
 	ui.setupUi(this);
 	//创建布局
-	QScrollArea *scrollArea = ui.scrollArea;
-	flowLayout = new QFlowLayout(scrollArea);
+	flowLayout = new QFlowLayout(ui.scrollAreaWidgetContents);
 
+
+	connect(ui.actionshauxin, SIGNAL(triggered()), this, SLOT(shuaxin()));
+}
+
+void variate_window::shuaxin() {
+	//清空horizontalLayout布局内的所有元素
+	QLayoutItem *child;
+	while ((child = flowLayout->takeAt(0)) != 0)
+	{
+		//setParent为NULL，防止删除之后界面不消失
+		if (child->widget())
+		{
+			child->widget()->setParent(NULL);
+		}
+
+		delete child;
+	}
+	
 }
 
 variate_window::~variate_window(){}
@@ -17,14 +34,17 @@ variate_window::~variate_window(){}
 void variate_window::update() {
 	//更新窗口
 	qDebug() << "--------------变量窗口update函数------------";
-	//先删除layout中所有的控件
-	for (int i = 0; i < flowLayout->count(); i++)
+	//清空horizontalLayout布局内的所有元素
+	QLayoutItem *child;
+	while ((child = flowLayout->takeAt(0)) != 0)
 	{
-		QLayoutItem * item = flowLayout->itemAt(i);
-		flowLayout->removeItem(item);
-		//Debug() << "remove item " << i;
+		//setParent为NULL，防止删除之后界面不消失
+		if (child->widget())
+		{
+			child->widget()->setParent(NULL);
+		}
+		delete child;
 	}
-
 	//遍历QMap,添加控件
 	QMapIterator<QString, Mat> iterator(RegionMap);
 	while (iterator.hasNext()) {
@@ -36,12 +56,13 @@ void variate_window::update() {
 		label->resize(80, 80);
 		//调用全局函数，将Mat显示在Label中
 		global_matToQimageLabelShow(label, mat);
+		QFrame * frame = new QFrame();
 		//创建下标label
-		QLabel *nameLabel = new QLabel(this);
+		QLabel *nameLabel = new QLabel(frame);
 		nameLabel->setAlignment(Qt::AlignCenter);	//设置文字居中显示
 		nameLabel->setText(iterator.key());
 		//创建垂直布局依附于frame，将图片label和下标nameLabel添加到布局中
-		QFrame * frame = new QFrame(this);
+		
 		QVBoxLayout *vy = new QVBoxLayout(frame);
 		vy->addWidget(label);
 		vy->addWidget(nameLabel);

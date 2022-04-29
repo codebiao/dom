@@ -1,6 +1,6 @@
 #pragma once
 #pragma execution_character_set("utf-8")
-#include <QtWidgets/QMainWindow>s
+#include <QtWidgets/QMainWindow>
 #include "ui_output_window.h"
 #include <qdebug.h>
 #include "GlobalParam.h"

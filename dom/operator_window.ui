@@ -119,7 +119,7 @@
          <enum>QFrame::Raised</enum>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="widget">
          <widget class="QLabel" name="label_7">
@@ -143,6 +143,73 @@
         </widget>
         <widget class="QWidget" name="read_image">
          <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <widget class="QFrame" name="frame_9">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_9">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_9">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>70</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>输出区域</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="comboBox_8">
+               <property name="editable">
+                <bool>true</bool>
+               </property>
+               <item>
+                <property name="text">
+                 <string>outregion</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
           <item>
            <widget class="QFrame" name="frame_8">
             <property name="maximumSize">
@@ -197,11 +264,42 @@
              </item>
              <item>
               <widget class="QComboBox" name="comboBox_7">
+               <property name="editable">
+                <bool>true</bool>
+               </property>
                <item>
                 <property name="text">
-                 <string>read</string>
+                 <string>F://Desktop//55.png</string>
                 </property>
                </item>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton">
+               <property name="maximumSize">
+                <size>
+                 <width>30</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">image: url(:/images/resource/images/newFile.png);</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="checkable">
+                <bool>false</bool>
+               </property>
+               <property name="autoDefault">
+                <bool>false</bool>
+               </property>
+               <property name="default">
+                <bool>false</bool>
+               </property>
+               <property name="flat">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
             </layout>
@@ -265,6 +363,9 @@
              </item>
              <item>
               <widget class="QComboBox" name="comboBox_5">
+               <property name="editable">
+                <bool>true</bool>
+               </property>
                <item>
                 <property name="text">
                  <string>F://Desktop//1.png</string>
@@ -326,6 +427,9 @@
              </item>
              <item>
               <widget class="QComboBox" name="comboBox_6">
+               <property name="editable">
+                <bool>true</bool>
+               </property>
                <item>
                 <property name="text">
                  <string>F://Desktop//2.png</string>
@@ -403,6 +507,9 @@
              </item>
              <item>
               <widget class="QComboBox" name="comboBox_2">
+               <property name="editable">
+                <bool>true</bool>
+               </property>
                <item>
                 <property name="text">
                  <string>inRegion</string>
@@ -470,6 +577,9 @@
              </item>
              <item>
               <widget class="QComboBox" name="comboBox_3">
+               <property name="editable">
+                <bool>true</bool>
+               </property>
                <item>
                 <property name="text">
                  <string>outRegion</string>
@@ -534,6 +644,9 @@
              </item>
              <item>
               <widget class="QComboBox" name="comboBox_4">
+               <property name="editable">
+                <bool>true</bool>
+               </property>
                <item>
                 <property name="text">
                  <string>100</string>
@@ -641,6 +754,8 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="dom.qrc"/>
+ </resources>
  <connections/>
 </ui>

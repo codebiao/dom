@@ -5,12 +5,9 @@
 #include "qdebug.h"
 #include <QCloseEvent>
 #include <QComboBox>
+#include "GlobalParam.h"
+#include <QFileDialog>
 
-struct operatorInfoStruct {
-	QString currentIndex;	//当前stackedWidget的页面索引
-	QString title;			//算子标题
-	QString intro;			//算子介绍
-};
 class operator_window : public QWidget
 {
 	Q_OBJECT
@@ -21,12 +18,11 @@ public:
 	
 
 public slots:		
-	void selectAlgorithm(QString currentText);									//选择算子
-	void readTxt2Map(QString filePath, QMap<QString, operatorInfoStruct> &Map); //读取文件存入Map中//并将函数名加入到comBox中
+	void selectAlgorithm(QString currentText);			//选择算子
+	void openImage();									//read_image页面中的“打开图片”图标，并将文件路径显示在comobox中
 signals:
 	void seedData(QString);		////用来传递数据的信号
 
 public:
 	Ui::operator_window ui;
-	QMap<QString, operatorInfoStruct> operatorInfoMap;
 };

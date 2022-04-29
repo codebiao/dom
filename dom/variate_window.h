@@ -25,6 +25,8 @@ public:
 public slots:
 	void update();						//更新数值
 	void LabelTrans2Window(Mat mat);	//中转站  //Label里的signal，转到该槽函数中进行处理
+
+	void shuaxin();
 signals:
 	void sendMat2OutputWindow(Mat);		//将Mat数据发送到OutputWindow中
 

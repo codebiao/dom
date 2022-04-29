@@ -7,7 +7,6 @@
 #include "input_window.h"
 #include "output_window.h"
 #include "variate_window.h"
-#include "code.h"
 #include<QDebug>
 #include<map> 
 

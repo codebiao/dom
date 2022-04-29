@@ -58,9 +58,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="code.cpp">
-      <Filter>Source Files\code</Filter>
-    </ClCompile>
     <ClCompile Include="operator_window.cpp">
       <Filter>Source Files\windows</Filter>
     </ClCompile>
@@ -94,11 +91,14 @@
     <ClCompile Include="VariateLabel.cpp">
       <Filter>Source Files\util</Filter>
     </ClCompile>
+    <ClCompile Include="CodeFactory.cpp">
+      <Filter>Source Files\code</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode.cpp">
+      <Filter>Source Files\code</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="code.h">
-      <Filter>Header Files\code</Filter>
-    </QtMoc>
     <QtMoc Include="operator_window.h">
       <Filter>Header Files\windows</Filter>
     </QtMoc>
@@ -122,6 +122,9 @@
     </QtMoc>
     <QtMoc Include="VariateLabel.h">
       <Filter>Header Files\util</Filter>
+    </QtMoc>
+    <QtMoc Include="CodeFactory.h">
+      <Filter>Header Files\code</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +150,9 @@
     </ClInclude>
     <ClInclude Include="GlobalParam.h">
       <Filter>Header Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode.h">
+      <Filter>Header Files\code</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
