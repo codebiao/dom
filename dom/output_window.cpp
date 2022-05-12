@@ -21,7 +21,8 @@ void output_window::showMat(Mat mat) {
 void output_window::closeEvent(QCloseEvent *e) {
 	qDebug() << "--------------重写关闭函数------------";
 	//this->hide();	 // 隐藏窗口
-	this->hide();
+	//this->setParent(nullptr);
+	this->setWindowState(Qt::WindowMinimized);
 	e->ignore(); // 忽视原来的关闭事件
 
 }

@@ -20,7 +20,14 @@ operator_window::~operator_window()
 {
 	qDebug("close operator_window");
 }
-
+//重写关闭函数
+void operator_window::closeEvent(QCloseEvent *e) {
+	qDebug() << "--------------重写关闭函数------------";
+	//this->hide();	 // 隐藏窗口
+	//this->setParent(nullptr);
+	this->setWindowState(Qt::WindowMinimized);
+	e->ignore(); // 忽视原来的关闭事件
+}
 //选择算子
 void operator_window::selectAlgorithm(QString currentText) {
 	qDebug() << "currentText="+ currentText;

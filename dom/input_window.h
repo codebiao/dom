@@ -23,12 +23,15 @@ public:
 	input_window(QWidget *parent = Q_NULLPTR);
 	~input_window();
 	QStringList getFunInfo(QString str);	//将函数信息 QString -> QStringList[ funName , param1, param2, ...]
-
+protected:
+	//重写关闭函数
+	void closeEvent(QCloseEvent *e);
 public slots:
 	void run();		//运行
 	void receiveData(QString data);		//接收operator_window传递过来的数据的槽
 signals:
-	void updateToVariate();				//让变量窗口更新数据
+	void updateToVariate();						//让变量窗口更新数据
+	void sendException2Dom(QString);			//将错误信息传到主窗口，并显示错误信息
 private:
 	Ui::input_window ui;
 };

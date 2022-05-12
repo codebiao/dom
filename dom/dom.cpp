@@ -8,11 +8,16 @@ dom::dom(QWidget *parent)
     ui.setupUi(this);
 	this->move(250,70);
 
-	// 启动默认打开窗口
-	open_output_window();
-	open_input_window();
-	open_operator_window();
-	open_variate_window();
+	//初始化窗口
+	outputWindow = new output_window(this);			//实例化 输出窗口
+	ui.mdiArea->addSubWindow(outputWindow);
+	inputWindow = new input_window(this);			//实例化输入窗口
+	ui.mdiArea->addSubWindow(inputWindow);
+	operatorWindow = new operator_window(this);		//实例化 算子窗口
+	ui.mdiArea->addSubWindow(operatorWindow);
+	variateWindow = new variate_window(this);		//实例化 变量窗口
+	ui.mdiArea->addSubWindow(variateWindow);
+	
 
 	//设置 打开的窗口 的大小，不然默认为最小化
 	foreach(QMdiSubWindow* s, ui.mdiArea->subWindowList()) {
@@ -36,7 +41,9 @@ dom::dom(QWidget *parent)
 	//连接 【input窗口】  -> 【变量窗口】
 	connect(inputWindow, SIGNAL(updateToVariate()), variateWindow, SLOT(update()));
 	//连接 【变量窗口】  -> 【output窗口】
-	connect(variateWindow, SIGNAL(sendMat2OutputWindow(Mat)), outputWindow, SLOT(showMat(Mat)));
+	connect(variateWindow, SIGNAL(sendMat2OutputWindow(Mat)), this->outputWindow, SLOT(showMat(Mat)));
+	//连接 【input窗口】  -> 【dom窗口】 //传送错误信息
+	connect(inputWindow, SIGNAL(sendException2Dom(QString)), this, SLOT(receiveException(QString)));
 }	
 
 void dom::test()
@@ -59,46 +66,47 @@ void dom::test()
 	
 }
 
+//拿到input窗口传来的错误信息
+void dom::receiveException(QString exception)
+{
+	qDebug() << "拿到input窗口传来的错误信息！！"+ exception;
+	//将函数名从QString -> const char *
+	string exception1 = exception.toStdString();
+	const char * exception2 = exception1.c_str();
+	QMessageBox::information(
+		this,
+		tr("错误信息"),
+		tr(exception2));
+}
+
 
 //打开 输入窗口
 void dom::open_input_window() 
 {
+	/*
 	if (!isOpen("输入窗口")) {
 		inputWindow = new input_window(this);		//实例化输入窗口
 		ui.mdiArea->addSubWindow(inputWindow);		//将输入窗口添加进mdiArea
 	}
 	inputWindow->show();
+	*/
+	qDebug() << "open_input_window";
+	inputWindow->showNormal();
 }
 //打开 算子窗口
 void dom::open_operator_window()
 {
-	if (!isOpen("算子窗口")) {
-		operatorWindow = new operator_window(this);		//实例化 算子窗口
-		ui.mdiArea->addSubWindow(operatorWindow);		//将 算子窗口 添加进mdiArea
-	}
-
-	operatorWindow->show();
-
+	operatorWindow->showNormal();
 }
 //打开 输出窗口
 void dom::open_output_window()
 {
-	if (!isOpen("输出窗口")) {
-		outputWindow = new output_window(this);			//实例化 输出窗口
-		ui.mdiArea->addSubWindow(outputWindow);			//将 输出窗口 添加进mdiArea
-	}
-
-	outputWindow->show();
+	outputWindow->showNormal();
 }
 //打开 变量窗口
 void dom::open_variate_window()
 {
-	if (!isOpen("变量窗口")) {
-		variateWindow = new variate_window(this);			//实例化 输出窗口
-		ui.mdiArea->addSubWindow(variateWindow);			//将 输出窗口 添加进mdiArea
-	}
-
-	variateWindow->show();
+	variateWindow->showNormal();
 }
 
 
@@ -111,39 +119,7 @@ void dom::image_stitch()
 	QComboBox * comboBox = operatorWindow->findChild<QComboBox *>("comboBox");
 	comboBox->setCurrentText("图像拼接");
 }
-/*
-// 判断参数合法、执行函数、输出（图像预处理--图像拼接 算子）
-void dom::image_stitch_handle() {
 
-	//打开输出窗口，若打开则show
-	open_output_window();		
-	//判断参数是否合法
-	QLineEdit * image_stitch_pic_1 = operatorWindow->findChild<QLineEdit *>("image_stitch_pic_1");
-	QLineEdit * image_stitch_pic_2 = operatorWindow->findChild<QLineEdit *>("image_stitch_pic_2");
-	//QString text_ = image_stitch_pic_1->text();
-	if (image_stitch_pic_1->text() == NULL || image_stitch_pic_2->text() == NULL) {
-		QMessageBox::information(NULL, "提示", "不能为空！");
-	}
-	else{
-	String image_1 = image_stitch_pic_1->text().toStdString();
-	String image_2 = image_stitch_pic_2->text().toStdString();
-	
-	//const char* image_1 = "F://Desktop//1.png";//左
-	//const char* image_2 = "F://Desktop//2.png";//右
-	Mat img = imread(image_1);	//左
-	Mat img2 = imread(image_2);	//右
-	//执行函数 + 输出Mat类型
-	pre_processing * preProcessing = new pre_processing(this);	//实例化算子
-	Mat dst = preProcessing->imageStitch->stitch_2(img, img2);	//dst为输出的图片
-	//输出到输出窗口，加载生成后的图片
-	QPixmap pix = QPixmap::fromImage(cvMat2QImage(dst) );//将Mat类型转化成QImage再转化成QPixmap
-	QLabel * fin_pic = outputWindow->findChild<QLabel *>("fin_pic");//找到按钮
-	fin_pic->setScaledContents(true); 
-	fin_pic->setPixmap(pix.scaled(fin_pic->size(),Qt::KeepAspectRatio,Qt::SmoothTransformation));	//写入图片
-	//Qt::KeepAspectRatio  
-	}//else end
-}
-*/
 void dom::image_segmentation()
 {
 	//打开 算子 窗口
@@ -151,38 +127,6 @@ void dom::image_segmentation()
 	QComboBox * comboBox = operatorWindow->findChild<QComboBox *>("comboBox");	
 	comboBox->setCurrentText("图像分割");
 }
-
-/*
-void dom::image_segmentation_handle()
-{
-	//qDebug() << "image_segmentation_handle";
-	//打开输出窗口，若打开则show
-	open_output_window();
-	//判断参数是否合法
-	QLineEdit * image_segmentation_yuzhi = operatorWindow->findChild<QLineEdit *>("image_segmentation_yuzhi");
-	QLineEdit * image_image_segmentation_pic_1 = operatorWindow->findChild<QLineEdit *>("image_image_segmentation_pic_1");
-	if (image_image_segmentation_pic_1->text() == NULL || image_segmentation_yuzhi->text() == NULL) {
-		QMessageBox::information(NULL, "提示", "不能为空！");
-	}
-	else {
-		int yuzhi = image_segmentation_yuzhi->text().toInt();	//阈值
-		String image_1 = image_image_segmentation_pic_1->text().toStdString();
-		
-		qDebug() << "image_1= "<<image_image_segmentation_pic_1->text() <<endl;
-		Mat img = imread(image_1);								//图片参数
-		//执行函数 + 输出Mat类型
-		pre_processing * preProcessing = new pre_processing(this);	//实例化算子
-		Mat dst = preProcessing->imageSegmentation->segmentation_1(img, yuzhi);	//dst为输出的图片
-		//输出到输出窗口，加载生成后的图片
-		QPixmap pix = QPixmap::fromImage(cvMat2QImage(dst));//将Mat类型转化成QImage再转化成QPixmap
-		QLabel * fin_pic = outputWindow->findChild<QLabel *>("fin_pic");//找到按钮
-		fin_pic->setScaledContents(true);
-		fin_pic->setPixmap(pix.scaled(fin_pic->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));	//写入图片
-	}
-}
-*/
-
-
 
 
 /*

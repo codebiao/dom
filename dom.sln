@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28307.1758
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dom", "dom\dom.vcxproj", "{99BBD5F0-E130-42B6-9746-DE2DB059EA6C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Image", "..\Image\Image\Image.vcxproj", "{11D6C72E-9C4F-4750-96C1-11BDCC3CBBD4}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -17,10 +15,6 @@ Global
 		{99BBD5F0-E130-42B6-9746-DE2DB059EA6C}.Debug|x64.Build.0 = Debug|x64
 		{99BBD5F0-E130-42B6-9746-DE2DB059EA6C}.Release|x64.ActiveCfg = Release|x64
 		{99BBD5F0-E130-42B6-9746-DE2DB059EA6C}.Release|x64.Build.0 = Release|x64
-		{11D6C72E-9C4F-4750-96C1-11BDCC3CBBD4}.Debug|x64.ActiveCfg = Debug|x64
-		{11D6C72E-9C4F-4750-96C1-11BDCC3CBBD4}.Debug|x64.Build.0 = Debug|x64
-		{11D6C72E-9C4F-4750-96C1-11BDCC3CBBD4}.Release|x64.ActiveCfg = Release|x64
-		{11D6C72E-9C4F-4750-96C1-11BDCC3CBBD4}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

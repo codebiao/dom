@@ -48,3 +48,8 @@ void  image_segmentation(Mat src, Mat &out, int thresh)
 	//Êä³ö
 	out = drawing;
 }
+
+//Í¼ÏñÆ´½Ó£¬²âÊÔ°æ±¾
+void image_stitch(Mat src1, Mat src2, Mat &out) {
+	out = src1;
+}

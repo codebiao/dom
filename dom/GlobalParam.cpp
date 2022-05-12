@@ -1,20 +1,10 @@
 #include "GlobalParam.h"
 
 
-QMap<QString, Mat> RegionMap;		//区域Map
 //算子信息Map，存放txt读出来的数据	//初始化
-QList<operatorInfoStruct> global_operatorInfoList = readTxt2Map("resource/operatorInfo.txt");	
+QList<operatorInfoStruct> global_operatorInfoList = readTxt2operatorInfoList("resource/operatorInfo.txt");
+QList<regionStruct> global_regionList;	//变量窗口、区域List
 
-
-//清空RegionMap
-void clearRegionMap() {
-	qDebug() << "--------------clearRegionMap函数------------";
-	for (auto iter = RegionMap.begin(); iter != RegionMap.end();)
-	{
-		iter = RegionMap.erase(iter);
-	}
-
-}
 
 ////把Mat现实中在Label中
 void global_matToQimageLabelShow(QLabel *label, cv::Mat &mat)
@@ -31,6 +21,7 @@ void global_matToQimageLabelShow(QLabel *label, cv::Mat &mat)
 		Img = QImage((const uchar*)(mat.data), mat.cols, mat.rows, mat.cols*mat.channels(), QImage::Format_Indexed8);
 	}
 	label->setPixmap(QPixmap::fromImage(Img).scaled(label->size()));
+	label->setScaledContents(true);
 }
 
 //	
@@ -41,7 +32,7 @@ void global_matToQimageLabelShow(QLabel *label, cv::Mat &mat)
 		1、信息必须由制表符"\t"分割
 		2、列数必须为6，否则不识别
  */
-QList<operatorInfoStruct>  readTxt2Map(QString filePath)
+QList<operatorInfoStruct>  readTxt2operatorInfoList(QString filePath)
 {
 	QList<operatorInfoStruct>  global_operatorInfoList;
 	QFile file(filePath);

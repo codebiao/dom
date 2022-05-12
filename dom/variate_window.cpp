@@ -28,7 +28,14 @@ void variate_window::shuaxin() {
 	}
 	
 }
-
+//重写关闭函数
+void variate_window::closeEvent(QCloseEvent *e) {
+	qDebug() << "--------------重写关闭函数------------";
+	//this->hide();	 // 隐藏窗口
+	//this->setParent(nullptr);
+	this->setWindowState(Qt::WindowMinimized);
+	e->ignore(); // 忽视原来的关闭事件
+}
 variate_window::~variate_window(){}
 
 void variate_window::update() {
@@ -45,24 +52,24 @@ void variate_window::update() {
 		}
 		delete child;
 	}
-	//遍历QMap,添加控件
-	QMapIterator<QString, Mat> iterator(RegionMap);
-	while (iterator.hasNext()) {
-		iterator.next();
-		qDebug() << iterator.key() << "窗口被创建";
-		Mat mat = iterator.value();
+	
+	//遍历QList,添加控件
+	for (int i = 0; i < global_regionList.size(); ++i)
+	{
+		regionStruct regionStruct = global_regionList.at(i);
+		qDebug() << regionStruct.regionName << "窗口被创建";
+		Mat mat = regionStruct.regionMat;
 		//创建QLabel
 		VariateLabel *label = new VariateLabel(mat);	//通过构造函数传入Mat值，在VariateLabel类中定义signal
 		label->resize(80, 80);
 		//调用全局函数，将Mat显示在Label中
 		global_matToQimageLabelShow(label, mat);
-		QFrame * frame = new QFrame();
+		QFrame * frame = new QFrame(this);
 		//创建下标label
 		QLabel *nameLabel = new QLabel(frame);
 		nameLabel->setAlignment(Qt::AlignCenter);	//设置文字居中显示
-		nameLabel->setText(iterator.key());
+		nameLabel->setText(regionStruct.regionName);
 		//创建垂直布局依附于frame，将图片label和下标nameLabel添加到布局中
-		
 		QVBoxLayout *vy = new QVBoxLayout(frame);
 		vy->addWidget(label);
 		vy->addWidget(nameLabel);
@@ -73,6 +80,7 @@ void variate_window::update() {
 		//将该label与本窗口中的槽函数进行链接//通过窗口利用【多重信号】进行中转
 		connect(label, SIGNAL(clicked(Mat)), this, SLOT(LabelTrans2Window(Mat)));
 	}
+
 }
 //只是个中转站
 //Label里的signal，转到该槽函数中进行处理
@@ -80,6 +88,6 @@ void variate_window::LabelTrans2Window(Mat mat) {
 	qDebug() << "--------------LabelTrans2Window函数------------";
 	//将中转的数据发送出去， 在output窗口中显示
 	//在主界面dom.cpp中进行connect
-	sendMat2OutputWindow(mat);
+	emit sendMat2OutputWindow(mat);
 }
 

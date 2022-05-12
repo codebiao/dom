@@ -9,7 +9,7 @@
 #include "variate_window.h"
 #include<QDebug>
 #include<map> 
-
+#include <QMessageBox>
 
 class dom : public QMainWindow
 {
@@ -30,7 +30,7 @@ public slots:
 	void image_stitch();				//调出参数控件、链接"应用"按钮（图像预处理--图像拼接 算子）
 	void image_segmentation();			//调出参数控件、链接"应用"按钮（图像预处理--图像分割 算子）
 	void test();//测试传值
-
+	void receiveException(QString exception); //拿到input窗口传来的错误信息
 
 public:
     Ui::domClass ui;

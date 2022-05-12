@@ -21,3 +21,6 @@ void read_image(Mat &out, string filePath);
 //图像分割 基于边缘
 //基于canny算子的 边缘检测
 void image_segmentation(Mat src, Mat &out, int thresh);
+
+/*---------------------------- 2 input, 1 output ---------------------------------------------*/
+void image_stitch(Mat src1, Mat src2, Mat &out);

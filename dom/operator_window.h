@@ -15,7 +15,9 @@ class operator_window : public QWidget
 public:
 	operator_window(QWidget *parent = Q_NULLPTR);
 	~operator_window();
-	
+protected:
+	//重写关闭函数
+	void closeEvent(QCloseEvent *e);
 
 public slots:		
 	void selectAlgorithm(QString currentText);			//选择算子

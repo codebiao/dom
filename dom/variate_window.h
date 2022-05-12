@@ -21,7 +21,9 @@ class variate_window : public QMainWindow
 public:
 	variate_window(QWidget *parent = Q_NULLPTR);
 	~variate_window();
-	
+protected:
+	//重写关闭函数
+	void closeEvent(QCloseEvent *e);
 public slots:
 	void update();						//更新数值
 	void LabelTrans2Window(Mat mat);	//中转站  //Label里的signal，转到该槽函数中进行处理
