@@ -34,6 +34,9 @@
     </rect>
    </property>
    <widget class="QMenu" name="menu">
+    <property name="tearOffEnabled">
+     <bool>false</bool>
+    </property>
     <property name="title">
      <string>算子</string>
     </property>
@@ -41,8 +44,8 @@
      <property name="title">
       <string>图像预处理</string>
      </property>
-     <addaction name="image_segmentation_action"/>
-     <addaction name="image_stitch_action"/>
+     <addaction name="action_read_image"/>
+     <addaction name="action_image_segmentation"/>
      <addaction name="action_4"/>
      <addaction name="action_5"/>
     </widget>
@@ -55,9 +58,15 @@
      <addaction name="action_9"/>
      <addaction name="action_10"/>
     </widget>
+    <widget class="QMenu" name="menu_5">
+     <property name="title">
+      <string>蚕丝检测</string>
+     </property>
+     <addaction name="action000"/>
+    </widget>
     <addaction name="menu_2"/>
     <addaction name="menu_3"/>
-    <addaction name="action_11"/>
+    <addaction name="menu_5"/>
    </widget>
    <widget class="QMenu" name="menu_4">
     <property name="title">
@@ -67,7 +76,6 @@
     <addaction name="operator_window_action"/>
     <addaction name="output_window_action"/>
     <addaction name="variate_window_action"/>
-    <addaction name="action_test"/>
    </widget>
    <addaction name="menu"/>
    <addaction name="menu_4"/>
@@ -154,6 +162,36 @@
   <action name="action_test">
    <property name="text">
     <string>传值test</string>
+   </property>
+  </action>
+  <action name="actionread_image">
+   <property name="text">
+    <string>read_image</string>
+   </property>
+  </action>
+  <action name="action_image_segmentation">
+   <property name="text">
+    <string>image_segmentation</string>
+   </property>
+  </action>
+  <action name="action_read_image">
+   <property name="text">
+    <string>read_image</string>
+   </property>
+  </action>
+  <action name="action0">
+   <property name="text">
+    <string>0</string>
+   </property>
+  </action>
+  <action name="action00_0">
+   <property name="text">
+    <string>00-0</string>
+   </property>
+  </action>
+  <action name="action000">
+   <property name="text">
+    <string>000</string>
    </property>
   </action>
  </widget>

@@ -26,11 +26,8 @@ public slots:
 	void open_output_window();			//打开 输出窗口
 	void open_variate_window();			//打开 变量窗口
 
-
-	void image_stitch();				//调出参数控件、链接"应用"按钮（图像预处理--图像拼接 算子）
-	void image_segmentation();			//调出参数控件、链接"应用"按钮（图像预处理--图像分割 算子）
-	void test();//测试传值
-	void receiveException(QString exception); //拿到input窗口传来的错误信息
+	void set_data2operator_comboBox(QString str);	//通过点击菜单中的【算子】，填入operatorWindow中的QComboBox中	
+	void receiveException(QString exception);		//拿到input窗口传来的错误信息
 
 public:
     Ui::domClass ui;
@@ -38,5 +35,12 @@ public:
 	input_window* inputWindow;			//输入窗口 对象
 	output_window* outputWindow;		//输出窗口 对象
 	variate_window* variateWindow;		//变量窗口 对象
+
+	//深度学习
+
+
+
+
+
 
 };

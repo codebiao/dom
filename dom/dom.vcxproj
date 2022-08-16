@@ -31,8 +31,8 @@
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
-    <QtInstall>qt5.14.2</QtInstall>
-    <QtModules>core;gui;widgets</QtModules>
+    <QtInstall>5.14.2_msvc2017_64_</QtInstall>
+    <QtModules>core;gui;uitools;widgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
@@ -55,9 +55,16 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <IncludePath>D:\Qt5.14.2\5.14.2\msvc2017_64\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Qt5.14.2\5.14.2\msvc2017_64\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
   </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Qt5.14.2\5.14.2\msvc2017_64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
@@ -92,6 +99,7 @@
     <ClCompile Include="output_window.cpp" />
     <ClCompile Include="QFlowLayout.cpp" />
     <ClCompile Include="SourceCode.cpp" />
+    <ClCompile Include="train.cpp" />
     <ClCompile Include="VariateLabel.cpp" />
     <ClCompile Include="variate_window.cpp" />
     <QtRcc Include="dom.qrc" />
@@ -102,13 +110,16 @@
     <QtUic Include="input_window.ui" />
     <QtUic Include="operator_window.ui" />
     <QtUic Include="output_window.ui" />
+    <QtUic Include="train.ui" />
     <QtUic Include="variate_window.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="operator_window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SourceCode.h" />
+    <QtMoc Include="train.h" />
     <QtMoc Include="CodeFactory.h" />
     <ClInclude Include="GlobalParam.h" />
     <QtMoc Include="VariateLabel.h" />

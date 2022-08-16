@@ -82,6 +82,9 @@
     <ClCompile Include="SourceCode.cpp">
       <Filter>Source Files\code</Filter>
     </ClCompile>
+    <ClCompile Include="train.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="operator_window.h">
@@ -105,6 +108,9 @@
     <QtMoc Include="CodeFactory.h">
       <Filter>Header Files\code</Filter>
     </QtMoc>
+    <QtMoc Include="train.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="operator_window.ui">
@@ -119,6 +125,9 @@
     <QtUic Include="variate_window.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="train.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="QFlowLayout.h">
@@ -129,6 +138,9 @@
     </ClInclude>
     <ClInclude Include="SourceCode.h">
       <Filter>Header Files\code</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
