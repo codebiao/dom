@@ -29,8 +29,11 @@ dom::dom(QWidget *parent)
 	connect(ui.input_window_action, SIGNAL(triggered()), this, SLOT(open_input_window()));
 	connect(ui.output_window_action, SIGNAL(triggered()), this, SLOT(open_output_window()));
 	connect(ui.variate_window_action, SIGNAL(triggered()), this, SLOT(open_variate_window()));
-	//各种算子
+	//深度学习
+	connect(ui.actiontrain, SIGNAL(triggered()), this, SLOT(open_train_window()));
+	connect(ui.actiondetect, SIGNAL(triggered()), this, SLOT(open_detect_window()));
 
+	//各种算子
 	QList<QAction *>  actionList = ui.menu_2->actions();	//图像预处理
 	QList<QAction *>  actionList2 = ui.menu_3->actions();	//特征处理
 	QList<QAction *>  actionList3 = ui.menu_5->actions();	//蚕丝
@@ -45,7 +48,7 @@ dom::dom(QWidget *parent)
 		});
 	}
 
-
+	//传值
 	//连接 【算子窗口】  -> 【input窗口】
 	connect(operatorWindow, SIGNAL(seedData(QString)), inputWindow, SLOT(receiveData(QString)));
 	//连接 【input窗口】  -> 【变量窗口】
@@ -79,7 +82,6 @@ void dom::open_input_window()
 	}
 	inputWindow->show();
 	*/
-	qDebug() << "open_input_window";
 	inputWindow->showNormal();
 }
 //打开 算子窗口
@@ -97,6 +99,34 @@ void dom::open_variate_window()
 {
 	variateWindow->showNormal();
 }
+
+//打开深度学习-train窗口
+void dom::open_train_window()
+{
+	//最小化其他四个窗口
+	foreach(QMdiSubWindow* s, ui.mdiArea->subWindowList()) {
+		s->setWindowState(Qt::WindowMinimized);
+	}
+
+	trainWindow = new train(this);			//实例化 train 窗口
+	ui.mdiArea->addSubWindow(trainWindow);
+	trainWindow->showNormal();
+	//关闭其他四个窗口
+	
+}
+//打开深度学习-detect窗口
+void dom::open_detect_window()
+{
+	//最小化其他四个窗口
+	foreach(QMdiSubWindow* s, ui.mdiArea->subWindowList()) {
+		s->setWindowState(Qt::WindowMinimized);
+	}
+	detectWindow = new detect(this);			//实例化 detect 窗口
+	ui.mdiArea->addSubWindow(detectWindow);
+	detectWindow->showNormal();
+}
+
+
 
 //通过点击菜单中的【算子】，填入operatorWindow中的QComboBox中
 void dom::set_data2operator_comboBox(QString str) {

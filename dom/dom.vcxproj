@@ -93,17 +93,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CodeFactory.cpp" />
+    <ClCompile Include="detect.cpp" />
     <ClCompile Include="GlobalParam.cpp" />
     <ClCompile Include="input_window.cpp" />
     <ClCompile Include="operator_window.cpp" />
     <ClCompile Include="output_window.cpp" />
     <ClCompile Include="QFlowLayout.cpp" />
-    <ClCompile Include="show.cpp" />
     <ClCompile Include="SourceCode.cpp" />
     <ClCompile Include="train.cpp" />
     <ClCompile Include="VariateLabel.cpp" />
     <ClCompile Include="variate_window.cpp" />
     <QtRcc Include="dom.qrc" />
+    <QtUic Include="detect.ui" />
     <QtUic Include="dom.ui" />
     <QtMoc Include="dom.h" />
     <ClCompile Include="dom.cpp" />
@@ -111,7 +112,6 @@
     <QtUic Include="input_window.ui" />
     <QtUic Include="operator_window.ui" />
     <QtUic Include="output_window.ui" />
-    <QtUic Include="show.ui" />
     <QtUic Include="train.ui" />
     <QtUic Include="variate_window.ui" />
   </ItemGroup>
@@ -119,7 +119,7 @@
     <QtMoc Include="operator_window.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="show.h" />
+    <QtMoc Include="detect.h" />
     <ClInclude Include="SourceCode.h" />
     <QtMoc Include="train.h" />
     <QtMoc Include="CodeFactory.h" />

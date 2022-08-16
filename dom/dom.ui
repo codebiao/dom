@@ -70,15 +70,23 @@
    </widget>
    <widget class="QMenu" name="menu_4">
     <property name="title">
-     <string>视图</string>
+     <string>传统方法窗口</string>
     </property>
     <addaction name="input_window_action"/>
     <addaction name="operator_window_action"/>
     <addaction name="output_window_action"/>
     <addaction name="variate_window_action"/>
    </widget>
+   <widget class="QMenu" name="menu_6">
+    <property name="title">
+     <string>深度学习</string>
+    </property>
+    <addaction name="actiontrain"/>
+    <addaction name="actiondetect"/>
+   </widget>
    <addaction name="menu"/>
    <addaction name="menu_4"/>
+   <addaction name="menu_6"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -192,6 +200,16 @@
   <action name="action000">
    <property name="text">
     <string>000</string>
+   </property>
+  </action>
+  <action name="actiontrain">
+   <property name="text">
+    <string>train</string>
+   </property>
+  </action>
+  <action name="actiondetect">
+   <property name="text">
+    <string>detect</string>
    </property>
   </action>
  </widget>

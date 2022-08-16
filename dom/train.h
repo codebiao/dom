@@ -2,7 +2,7 @@
 
 #include <QMainWindow>
 #include "ui_train.h"
-
+#include<QDebug>
 class train : public QMainWindow
 {
 	Q_OBJECT
@@ -10,6 +10,9 @@ class train : public QMainWindow
 public:
 	train(QWidget *parent = nullptr);
 	~train();
+
+public slots:
+	void test();
 
 private:
 	Ui::trainClass ui;

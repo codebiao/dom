@@ -7,6 +7,8 @@
 #include "input_window.h"
 #include "output_window.h"
 #include "variate_window.h"
+#include "train.h"
+#include "detect.h"
 #include<QDebug>
 #include<map> 
 #include <QMessageBox>
@@ -25,6 +27,9 @@ public slots:
 	void open_input_window();			//打开 输入窗口
 	void open_output_window();			//打开 输出窗口
 	void open_variate_window();			//打开 变量窗口
+	//深度学习
+	void open_train_window();			//打开trainv窗口
+	void open_detect_window();			//打开detect窗口
 
 	void set_data2operator_comboBox(QString str);	//通过点击菜单中的【算子】，填入operatorWindow中的QComboBox中	
 	void receiveException(QString exception);		//拿到input窗口传来的错误信息
@@ -35,6 +40,9 @@ public:
 	input_window* inputWindow;			//输入窗口 对象
 	output_window* outputWindow;		//输出窗口 对象
 	variate_window* variateWindow;		//变量窗口 对象
+	//深度学习
+	train* trainWindow;					//train窗口
+	detect* detectWindow;				//detect窗口
 
 	//深度学习
 

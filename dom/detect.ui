@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>trainClass</class>
- <widget class="QMainWindow" name="trainClass">
+ <class>detectClass</class>
+ <widget class="QMainWindow" name="detectClass">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -17,23 +17,9 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>train</string>
+   <string>detect</string>
   </property>
-  <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="start">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>150</y>
-      <width>141</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>开始</string>
-    </property>
-   </widget>
-  </widget>
+  <widget class="QWidget" name="centralWidget"/>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
