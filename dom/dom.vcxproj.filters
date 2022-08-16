@@ -39,6 +39,15 @@
     <Filter Include="Source Files\util">
       <UniqueIdentifier>{ce2f4df2-f0f5-4e03-9ff5-5882f5d9c6e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Form Files\deepLearning">
+      <UniqueIdentifier>{1e01654c-4dfc-45f4-870a-5683a179a50f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\deepLearning">
+      <UniqueIdentifier>{54e2c8c3-27de-4033-9a18-808a103c56c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\deepLearning">
+      <UniqueIdentifier>{0b0c6132-e61d-4a5e-9bca-781f82b19df8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="dom.qrc">
@@ -82,8 +91,11 @@
     <ClCompile Include="SourceCode.cpp">
       <Filter>Source Files\code</Filter>
     </ClCompile>
+    <ClCompile Include="show.cpp">
+      <Filter>Source Files\deepLearning</Filter>
+    </ClCompile>
     <ClCompile Include="train.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\deepLearning</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -108,8 +120,11 @@
     <QtMoc Include="CodeFactory.h">
       <Filter>Header Files\code</Filter>
     </QtMoc>
+    <QtMoc Include="show.h">
+      <Filter>Header Files\deepLearning</Filter>
+    </QtMoc>
     <QtMoc Include="train.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\deepLearning</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
@@ -126,7 +141,10 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="train.ui">
-      <Filter>Form Files</Filter>
+      <Filter>Form Files\deepLearning</Filter>
+    </QtUic>
+    <QtUic Include="show.ui">
+      <Filter>Form Files\deepLearning</Filter>
     </QtUic>
   </ItemGroup>
   <ItemGroup>
@@ -138,9 +156,6 @@
     </ClInclude>
     <ClInclude Include="SourceCode.h">
       <Filter>Header Files\code</Filter>
-    </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

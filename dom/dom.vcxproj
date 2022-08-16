@@ -98,6 +98,7 @@
     <ClCompile Include="operator_window.cpp" />
     <ClCompile Include="output_window.cpp" />
     <ClCompile Include="QFlowLayout.cpp" />
+    <ClCompile Include="show.cpp" />
     <ClCompile Include="SourceCode.cpp" />
     <ClCompile Include="train.cpp" />
     <ClCompile Include="VariateLabel.cpp" />
@@ -110,6 +111,7 @@
     <QtUic Include="input_window.ui" />
     <QtUic Include="operator_window.ui" />
     <QtUic Include="output_window.ui" />
+    <QtUic Include="show.ui" />
     <QtUic Include="train.ui" />
     <QtUic Include="variate_window.ui" />
   </ItemGroup>
@@ -117,7 +119,7 @@
     <QtMoc Include="operator_window.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="resource.h" />
+    <QtMoc Include="show.h" />
     <ClInclude Include="SourceCode.h" />
     <QtMoc Include="train.h" />
     <QtMoc Include="CodeFactory.h" />
